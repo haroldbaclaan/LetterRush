@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LetterRush</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="background"></div>
+
+  <!-- =========================
+       TOP NAVIGATION
+  ========================== -->
+  <header class="topbar">
+    <a class="brand" href="#" data-page="home">
+      Letter<span>Rush</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <button data-page="home">HOME</button>
+      <button data-page="profile">PROFILE</button>
+      <button data-page="game">GAME</button>
+      <button data-page="practice">PRACTICE MODE</button>
+      <button data-page="results">RESULTS</button>
+      <button data-page="settings">SETTINGS</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =========================
+         HOME
+    ========================== -->
+    <section id="home" class="page active">
+      <div class="hero">
+        <p class="eyebrow">TYPE • COMPETE • IMPROVE</p>
+        <h1>LetterRush</h1>
+        <p>Improve your typing speed and accuracy through fast, engaging gameplay.</p>
+        <p id="homeGreeting" class="home-greeting hidden"></p>
+
+        <div class="hero-actions">
+          <button class="primary" id="startGame">PLAY GAME</button>
+          <button class="secondary" data-page="practice">PRACTICE MODE</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         GAME
+    ========================== -->
+    <section id="game" class="page">
+      <div class="game-card">
+        <!-- NORMAL GAME SETUP -->
+        <div class="game-setup" id="gameSetup">
+          <div class="setup-heading">
+            <p class="eyebrow">GAME SETUP</p>
+            <h2>Choose your challenge</h2>
+          </div>
+
+          <!-- DIFFICULTY -->
+          <div class="control-group">
+            <label for="difficulty">DIFFICULTY</label>
+            <select id="difficulty" aria-label="Difficulty">
+              <option value="easy">Easy</option>
+              <option value="medium" selected>Medium</option>
+              <option value="difficult">Difficult</option>
+            </select>
+            <small class="control-hint"></small>
+          </div>
+
+          <!-- TIMER -->
+          <div class="control-group">
+            <label for="timerAmount">PLAY TIME</label>
+            <div class="duration-controls">
+              <input id="timerAmount" type="number" min="1" value="60" aria-label="Play time">
+              <select id="timerUnit" aria-label="Time unit">
+                <option value="seconds">Seconds</option>
+                <option value="minutes">Minutes</option>
+              </select>
+            </div>
+            <small class="control-hint">Enter any amount of time you want.</small>
+          </div>
+
+          <!-- START BUTTON -->
+          <div class="start-area">
+            <button class="primary start-game-button" id="gameStart">START GAME</button>
+            <p class="start-note">Countdown starts after pressing Start.</p>
+          </div>
+        </div>
+
+        <!-- COUNTDOWN -->
+        <div id="countdownOverlay" class="countdown-overlay hidden">
+          <span id="countdownNumber">3</span>
+        </div>
+
+        <!-- GAME STATS -->
+        <div id="gameStage" class="hidden">
+          <div class="stats">
+            <div class="timed-only">
+              <small>TIME</small>
+              <strong id="time" aria-label="Time remaining" aria-live="off">01:00</strong>
+            </div>
+
+            <div class="timed-only">
+              <small>WPM</small>
+              <strong id="wpm">0</strong>
+            </div>
+
+            <div class="timed-only">
+              <small>ACCURACY</small>
+              <strong id="accuracy">100%</strong>
+            </div>
+
+            <div>
+              <small>SCORE</small>
+              <strong id="score">0</strong>
+            </div>
+
+            <div class="practice-only hidden">
+              <small>DIFFICULTY</small>
+              <strong id="currentDifficulty">Easy</strong>
+            </div>
+
+            <div class="practice-only hidden">
+              <small>CORRECT</small>
+              <strong id="correctCount">0</strong>
+            </div>
+
+            <div class="practice-only hidden">
+              <small>INCORRECT</small>
+              <strong id="incorrectCount">0</strong>
+            </div>
+          </div>
+
+          <!-- PROGRESS -->
+          <div class="progress">
+            <span id="progress"></span>
+          </div>
+
+          <!-- TYPING AREA -->
+          <div class="typing-box">
+            <small class="typing-label">TYPE THE TEXT BELOW</small>
+            <p id="wordDisplay">Choose your difficulty and timer above.</p>
+            <input id="typingInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type here..." disabled>
+            <p id="feedback"></p>
+          </div>
+
+          <!-- GAME ACTIONS -->
+          <div class="game-actions">
+            <button class="secondary" id="pauseGame" disabled>PAUSE</button>
+            <button class="secondary danger-button" id="stopGame" disabled>STOP</button>
+          </div>
+        </div>
+
+        <!-- PAUSE PANEL -->
+        <div id="pausePanel" class="pause-panel hidden">
+          <p class="eyebrow">GAME PAUSED</p>
+          <h3>Take a break</h3>
+          <p>Your progress is saved. Continue whenever you are ready.</p>
+          <button class="primary" id="continueGame">CONTINUE</button>
+          <button class="secondary danger-button" id="stopGameButton">STOP GAME</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         PROFILE
+    ========================== -->
+    <section id="profile" class="page">
+      <div class="panel profile-panel">
+        <p class="eyebrow">PLAYER PROFILE</p>
+        <h2>Profile</h2>
+
+        <div class="profile-avatar">
+          <div class="avatar-icon" aria-hidden="true">👤</div>
+        </div>
+
+        <div id="profileDisplay" class="profile-display">
+          <p class="profile-name-line">Name: <strong id="playerName">Your Name</strong></p>
+          <button class="secondary" id="editProfile">EDIT</button>
+        </div>
+
+        <div id="profileForm" class="profile-form hidden">
+          <label for="nameInput">Name</label>
+          <input id="nameInput" type="text" maxlength="30" placeholder="Enter your name" autocomplete="name">
+          <div class="profile-form-actions">
+            <button class="primary" id="saveName">SAVE</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         RESULTS
+    ========================== -->
+    <section id="results" class="page">
+      <div class="panel">
+        <p class="eyebrow">LAST ROUND</p>
+        <h2>Results</h2>
+
+        <div class="result-grid">
+          <div>
+            <span>WPM</span>
+            <strong id="resultWpm">0</strong>
+          </div>
+          <div>
+            <span>Accuracy</span>
+            <strong id="resultAccuracy">0%</strong>
+          </div>
+          <div>
+            <span>Score</span>
+            <strong id="resultScore">0</strong>
+          </div>
+          <div>
+            <span>Difficulty</span>
+            <strong id="resultDifficulty">—</strong>
+          </div>
+        </div>
+
+        <button class="primary" data-page="game">PLAY AGAIN</button>
+      </div>
+    </section>
+
+    <!-- =========================
+         PRACTICE MODE
+    ========================== -->
+    <section id="practice" class="page">
+      <div class="panel practice-panel">
+        <p class="eyebrow">UNLIMITED TRAINING</p>
+        <h2>Practice Mode</h2>
+        <p>Practice without a time limit. Every challenge is automatically randomized between Easy, Medium, and Difficult.</p>
+
+        <div class="practice-note">
+          <span class="practice-icon">✦</span>
+          <div>
+            <strong>Randomized challenges</strong>
+            <p>No difficulty selection. No timer. Just start practicing.</p>
+          </div>
+        </div>
+
+        <button class="primary" id="practiceStart">START PRACTICE</button>
+      </div>
+    </section>
+
+    <!-- =========================
+         SETTINGS
+    ========================== -->
+    <section id="settings" class="page">
+      <div class="panel settings-panel">
+        <p class="eyebrow">CUSTOMIZE YOUR EXPERIENCE</p>
+        <h2>Settings</h2>
+
+        <!-- SOUND EFFECTS -->
+        <div class="setting">
+          <div class="setting-info">
+            <strong>Sound Effects</strong>
+            <span>Play sounds for countdowns, typing, and game actions.</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="soundToggle" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- BACKGROUND MUSIC -->
+        <div class="setting">
+          <div class="setting-info">
+            <strong>Background Music</strong>
+            <span>Play a soft ambient background sound.</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="musicToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- DARK MODE -->
+        <div class="setting">
+          <div class="setting-info">
+            <strong>Dark Mode</strong>
+            <span>Add a darker appearance to the interface.</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- APPEARANCE -->
+        <div class="appearance-launch">
+          <div class="setting-info">
+            <strong>Appearance</strong>
+            <span>Customize colors and preset themes.</span>
+          </div>
+          <button type="button" class="secondary" id="appearanceToggle" aria-expanded="false">CUSTOMIZE</button>
+        </div>
+
+        <div class="appearance-section hidden" id="appearanceSection">
+          <div class="appearance-header">
+            <div>
+              <strong>Appearance</strong>
+              <span>Choose a preset or tune individual colors.</span>
+            </div>
+            <button type="button" class="reset-appearance" id="resetAppearance">RESET TO DEFAULT</button>
+          </div>
+
+          <!-- COLOR PRESETS -->
+          <div class="preset-area">
+            <label for="appearancePreset">COLOR PRESET</label>
+            <select id="appearancePreset">
+              <option value="default">Default</option>
+              <option value="ocean">Ocean</option>
+              <option value="forest">Forest</option>
+              <option value="sunset">Sunset</option>
+              <option value="purple">Purple</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+
+          <!-- CUSTOM COLORS -->
+          <div class="color-grid">
+            <div class="color-control">
+              <label for="primaryColor">PRIMARY COLOR</label>
+              <div class="color-input-wrapper">
+                <input type="color" id="primaryColor" value="#ffffff">
+                <span id="primaryHex">#FFFFFF</span>
+              </div>
+            </div>
+
+            <div class="color-control">
+              <label for="backgroundColor">BACKGROUND</label>
+              <div class="color-input-wrapper">
+                <input type="color" id="backgroundColor" value="#050505">
+                <span id="backgroundHex">#050505</span>
+              </div>
+            </div>
+
+            <div class="color-control">
+              <label for="buttonColor">BUTTON COLOR</label>
+              <div class="color-input-wrapper">
+                <input type="color" id="buttonColor" value="#ffffff">
+                <span id="buttonHex">#FFFFFF</span>
+              </div>
+            </div>
+
+            <div class="color-control">
+              <label for="accentColor">ACCENT COLOR</label>
+              <div class="color-input-wrapper">
+                <input type="color" id="accentColor" value="#69d391">
+                <span id="accentHex">#69D391</span>
+              </div>
+            </div>
+
+            <div class="color-control">
+              <label for="textColor">TEXT</label>
+              <div class="color-input-wrapper">
+                <input type="color" id="textColor" value="#f7f7f7">
+                <span id="textHex">#F7F7F7</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUGGESTION -->
+          <div class="appearance-suggestion">
+            <span>✦</span>
+            <p>
+              <strong>Suggestion:</strong> Try Ocean for a cool style, Forest for a calm look, or Sunset for a warmer appearance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer>
+    LETTER<span>RUSH</span>@2026
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
