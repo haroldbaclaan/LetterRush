@@ -8,7 +8,34 @@
 </head>
 <body>
 
-  <div class="background"></div>
+  <div class="background" aria-hidden="true">
+    <svg class="background-controller" viewBox="0 0 720 500" focusable="false">
+      <path class="controller-shell" transform="translate(-50 -30) scale(1.14 1.12)" d="M224 111c-42 4-75 25-94 64-16 32-29 80-45 132-12 40 6 68 37 73 18 3 35-4 52-17l64-49c37 17 75 25 122 25s85-8 122-25l64 49c17 13 34 20 52 17 31-5 49-33 37-73-16-52-29-100-45-132-19-39-52-60-94-64-33-3-64 7-94 18-25 9-51 9-76 0-30-11-61-21-94-18Z"/>
+      <circle class="controller-stick-ring" cx="220" cy="220" r="43"/>
+      <circle class="controller-stick-cap" cx="220" cy="220" r="30"/>
+      <circle class="controller-dpad-plate" cx="280" cy="320" r="43"/>
+      <path class="controller-dpad" d="M267 282h26v25h25v26h-25v25h-26v-25h-25v-26h25z"/>
+      <circle class="controller-stick-ring" cx="435" cy="320" r="43"/>
+      <circle class="controller-stick-cap" cx="435" cy="320" r="30"/>
+      <circle class="controller-xbox-logo" cx="360" cy="170" r="19"/>
+      <path class="controller-xbox-mark" d="M348 160c5 0 9 4 12 8 3-4 7-8 12-8-1 5-5 10-9 14 4 4 8 9 9 14-5 0-9-4-12-8-3 4-7 8-12 8 1-5 5-10 9-14-4-4-8-9-9-14Z"/>
+      <circle class="controller-menu-button" cx="320" cy="235" r="12"/>
+      <path class="controller-menu-icon" d="M315 232h10m-10 4h10m-10 4h10"/>
+      <circle class="controller-menu-button" cx="400" cy="235" r="12"/>
+      <path class="controller-menu-icon" d="M395 231h10v8h-10zm2 2 3 3 3-3"/>
+      <rect class="controller-share-button" x="348" y="263" width="24" height="13" rx="6"/>
+      <path class="controller-menu-icon" d="M360 272v-6m-3 3 3-3 3 3"/>
+      <circle class="controller-face-button controller-face-y" cx="520" cy="205" r="21"/>
+      <text class="controller-face-label controller-label-y" x="520" y="205">Y</text>
+      <circle class="controller-face-button controller-face-b" cx="560" cy="245" r="21"/>
+      <text class="controller-face-label controller-label-b" x="560" y="245">B</text>
+      <circle class="controller-face-button controller-face-x" cx="480" cy="245" r="21"/>
+      <text class="controller-face-label controller-label-x" x="480" y="245">X</text>
+      <circle class="controller-face-button controller-face-a" cx="520" cy="285" r="21"/>
+      <text class="controller-face-label controller-label-a" x="520" y="285">A</text>
+      <path class="controller-detail" d="M311 365c-13 19-27 36-45 51m158-51c13 19 27 36 45 51"/>
+    </svg>
+  </div>
 
   <!-- =========================
        TOP NAVIGATION
@@ -21,7 +48,7 @@
     <nav aria-label="Main navigation">
       <button data-page="home">HOME</button>
       <button data-page="profile">PROFILE</button>
-      <button data-page="game">GAME</button>
+      <button data-page="game-menu">GAME</button>
       <button data-page="practice">PRACTICE MODE</button>
       <button data-page="results">RESULTS</button>
       <button data-page="settings">SETTINGS</button>
@@ -47,6 +74,34 @@
     </section>
 
     <!-- =========================
+         GAME CATEGORY MENU
+    ========================== -->
+    <section id="game-menu" class="page">
+      <div class="panel game-category-panel">
+        <p class="eyebrow">PICK YOUR GAME</p>
+        <h2>Game Modes</h2>
+        <p class="game-category-intro">Choose a mode to get started.</p>
+        <div class="game-category-grid">
+          <button class="game-category-card" type="button" data-page="game">
+            <span class="game-category-icon" aria-hidden="true">◷</span>
+            <strong>Timed Game</strong>
+            <span>Race the clock and test your typing speed.</span>
+          </button>
+          <button class="game-category-card" type="button" data-page="story">
+            <span class="game-category-icon" aria-hidden="true">▤</span>
+            <strong>Story Mode</strong>
+            <span>Choose a storybook and type through its chapters.</span>
+          </button>
+          <button class="game-category-card" type="button" data-page="keysmash">
+            <span class="game-category-icon" aria-hidden="true">⌨</span>
+            <strong>Keysmash</strong>
+            <span>Type random strings of letters before time runs out.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
          GAME
     ========================== -->
     <section id="game" class="page">
@@ -56,10 +111,11 @@
           <div class="setup-heading">
             <p class="eyebrow">GAME SETUP</p>
             <h2>Choose your challenge</h2>
+            <p class="game-mode-hint" id="gameModeHint"></p>
           </div>
 
           <!-- DIFFICULTY -->
-          <div class="control-group">
+          <div class="control-group" id="difficultyGroup">
             <label for="difficulty">DIFFICULTY</label>
             <select id="difficulty" aria-label="Difficulty">
               <option value="easy">Easy</option>
@@ -131,6 +187,21 @@
               <small>INCORRECT</small>
               <strong id="incorrectCount">0</strong>
             </div>
+
+            <div class="story-only hidden">
+              <small>LEVEL</small>
+              <strong id="storyLevel">1</strong>
+            </div>
+
+            <div class="story-only hidden">
+              <small>LIVES</small>
+              <strong id="storyLives">3</strong>
+            </div>
+
+            <div class="story-only hidden">
+              <small>LEVEL PROGRESS</small>
+              <strong id="storyLevelProgress">0 / 5</strong>
+            </div>
           </div>
 
           <!-- PROGRESS -->
@@ -140,6 +211,7 @@
 
           <!-- TYPING AREA -->
           <div class="typing-box">
+            <small class="story-active-title hidden" id="storyActiveTitle"></small>
             <small class="typing-label">TYPE THE TEXT BELOW</small>
             <p id="wordDisplay">Choose your difficulty and timer above.</p>
             <input id="typingInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type here..." disabled>
@@ -188,6 +260,67 @@
             <button class="primary" id="saveName">SAVE</button>
           </div>
         </div>
+
+        <section class="profile-stats" aria-labelledby="profileStatsHeading">
+          <div class="profile-section-heading">
+            <div>
+              <p class="eyebrow">YOUR PROGRESS</p>
+              <h3 id="profileStatsHeading">Timed Game Overview</h3>
+            </div>
+          </div>
+
+          <div class="profile-stat-grid">
+            <div class="profile-stat">
+              <span>GAMES PLAYED</span>
+              <strong id="profileGamesPlayed">0</strong>
+            </div>
+            <div class="profile-stat">
+              <span>TOTAL SCORE</span>
+              <strong id="profileTotalScore">0</strong>
+            </div>
+            <div class="profile-stat">
+              <span>AVERAGE WPM</span>
+              <strong id="profileAverageWpm">0</strong>
+            </div>
+            <div class="profile-stat">
+              <span>AVERAGE ACCURACY</span>
+              <strong id="profileAverageAccuracy">0%</strong>
+            </div>
+          </div>
+
+          <div class="profile-best-grid">
+            <div class="profile-best">
+              <span>PERSONAL BEST SCORE</span>
+              <strong id="profileBestScore">0</strong>
+            </div>
+            <div class="profile-best">
+              <span>FASTEST WPM</span>
+              <strong id="profileBestWpm">0</strong>
+            </div>
+          </div>
+
+          <div class="profile-history-section">
+            <h3>Story Mode Best</h3>
+            <div class="profile-best-grid">
+              <div class="profile-best">
+                <span>HIGHEST LEVEL</span>
+                <strong id="profileStoryBestLevel">0</strong>
+              </div>
+              <div class="profile-best">
+                <span>HIGHEST STORY SCORE</span>
+                <strong id="profileStoryBestScore">0</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-history-section">
+            <h3>Recent Games</h3>
+            <p class="profile-history-hint">Your 10 most recent timed rounds are saved on this device.</p>
+            <div id="profileHistory" class="profile-history-wrap">
+              <p class="profile-history-empty">No timed games played yet. Complete a game to see your results here.</p>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -244,6 +377,62 @@
     </section>
 
     <!-- =========================
+         STORY MODE
+    ========================== -->
+    <section id="story" class="page">
+      <div class="panel story-panel">
+        <div id="storySetup">
+          <p class="eyebrow">CHOOSE YOUR ADVENTURE</p>
+          <h2>Story Books</h2>
+          <div class="story-intro">
+            <p>Choose a book, then type your way through its story. Complete five passages to advance to the next chapter. You have three lives for the whole journey.</p>
+          </div>
+          <div class="story-book-list" id="storyBookList" aria-label="Choose a story book">
+            <button class="story-book selected" type="button" data-storybook="moonlit-map" aria-pressed="true">
+              <span class="story-book-genre">MYSTERY</span>
+              <strong>The Moonlit Map</strong>
+              <span>A strange map leads Mira to a hidden city beneath the stars.</span>
+            </button>
+            <button class="story-book" type="button" data-storybook="clockwork-forest" aria-pressed="false">
+              <span class="story-book-genre">FANTASY</span>
+              <strong>The Clockwork Forest</strong>
+              <span>Help Tavi wake a forest whose trees have stopped turning.</span>
+            </button>
+            <button class="story-book" type="button" data-storybook="last-lighthouse" aria-pressed="false">
+              <span class="story-book-genre">ADVENTURE</span>
+              <strong>The Last Lighthouse</strong>
+              <span>Join Rowan on a stormy voyage to bring a lost beacon home.</span>
+            </button>
+            <button class="story-book" type="button" data-storybook="paper-dragon" aria-pressed="false">
+              <span class="story-book-genre">FANTASY</span>
+              <strong>The Paper Dragon</strong>
+              <span>A handmade dragon takes Nia on a journey beyond her rooftop.</span>
+            </button>
+            <button class="story-book" type="button" data-storybook="sky-train" aria-pressed="false">
+              <span class="story-book-genre">SCI-FI</span>
+              <strong>The Midnight Sky Train</strong>
+              <span>Board a train that carries Eli between distant planets.</span>
+            </button>
+            <button class="story-book" type="button" data-storybook="secret-garden" aria-pressed="false">
+              <span class="story-book-genre">DISCOVERY</span>
+              <strong>The Secret Garden Gate</strong>
+              <span>Follow a trail of clues to a garden hidden in the city.</span>
+            </button>
+          </div>
+          <p class="story-selection" id="storySelection" aria-live="polite">Selected: The Moonlit Map</p>
+          <button class="primary" id="storyStart">START STORY</button>
+        </div>
+
+        <div id="storyEndPanel" class="story-end-panel hidden" aria-live="polite">
+          <p class="eyebrow">JOURNEY ENDED</p>
+          <h3 id="storyEndTitle">You reached Level 1</h3>
+          <p id="storyEndMessage"></p>
+          <button class="primary" id="storyRestart">TRY AGAIN</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
          SETTINGS
     ========================== -->
     <section id="settings" class="page">
@@ -271,18 +460,6 @@
           </div>
           <label class="switch">
             <input type="checkbox" id="musicToggle">
-            <span class="slider"></span>
-          </label>
-        </div>
-
-        <!-- DARK MODE -->
-        <div class="setting">
-          <div class="setting-info">
-            <strong>Dark Mode</strong>
-            <span>Add a darker appearance to the interface.</span>
-          </div>
-          <label class="switch">
-            <input type="checkbox" id="darkModeToggle">
             <span class="slider"></span>
           </label>
         </div>
