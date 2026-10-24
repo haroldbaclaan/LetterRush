@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
     medium: [
       "keyboard", "practice", "accuracy", "challenge", "sentence", "progress",
+<<<<<<< HEAD
       "mountain", "frontend", "developer", "sequence", "language", "hardware", "terminal",
       "browser", "project", "network", "function", "variable", "element", "response",
       "document", "feature", "database", "interface", "creative", "solution", "reliable",
@@ -112,12 +113,16 @@ document.addEventListener("DOMContentLoaded", () => {
       "example", "picture", "morning", "holiday", "friendly", "important", "different",
       "experience", "beautiful", "wonderful", "adventure", "community", "confidence",
       "education", "excellent", "curiosity", "celebrate"
+=======
+      "mountain", "frontend", "developer", "sequence", "language", "hardware", "terminal"
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     ],
     difficult: [
       "synchronize", "infrastructure", "architecture", "microcontroller",
       "cryptography", "optimization", "implementation", "unpredictable", "asynchronous"
     ]
   };
+<<<<<<< HEAD
   const DIFFICULT_SENTENCES = [
     "Cryptography shields private messages.",
     "Optimization improves complex systems.",
@@ -160,6 +165,166 @@ document.addEventListener("DOMContentLoaded", () => {
       easy: ["When Mary Lennox was sent to Misselthwaite Manor to live with her uncle, everybody said she was the most disagreeable-looking child ever seen.", "She had a little thin face and a little thin body.", "Her hair was yellow, and her face was yellow.", "Mary had always been left to herself.", "The great house seemed full of secrets."],
       medium: ["She had been born in India and had always been ill in one way or another.", "Her father had held a position under the English Government.", "The house stood on the edge of a wide moor.", "Mary wandered through the long corridors and listened to the wind.", "One day she discovered a garden that had been locked for years."],
       difficult: ["The wind swept across the moor with a wild, lonely sound, and the great house seemed to hold its breath.", "Mary had never been allowed to explore freely, and every hidden passage filled her with curiosity.", "A robin appeared among the branches and seemed to invite her to follow.", "The old garden was waiting beneath tangled vines and forgotten leaves.", "With patience and care, the sleeping garden would begin to live again."] } }
+=======
+
+  const STORYBOOKS = {
+    "moonlit-map": {
+      title: "The Moonlit Map",
+      passages: {
+        easy: [
+          "Mira found a silver map.",
+          "It shone beneath the moon.",
+          "A star marked the old well.",
+          "She followed the quiet path.",
+          "A blue door waited below."
+        ],
+        medium: [
+          "The map shimmered whenever Mira moved toward the harbor.",
+          "Beneath the old well, a staircase curled into the earth.",
+          "Tiny lights drifted past her like stars under the city.",
+          "A brass key rested beside a door carved with waves.",
+          "Mira turned the key, and the hidden harbor woke."
+        ],
+        difficult: [
+          "Beyond the doorway, an underground city glittered beneath a ceiling of crystal.",
+          "The map redrew itself, tracing a route through streets no visitor had seen.",
+          "At the silent observatory, Mira discovered her family name among the stars.",
+          "She placed the map in the empty telescope, revealing the city's forgotten dawn.",
+          "When morning reached the surface, every lantern below shone like a promise."
+        ]
+      }
+    },
+    "clockwork-forest": {
+      title: "The Clockwork Forest",
+      passages: {
+        easy: [
+          "Tavi heard a bell in the woods.",
+          "The trees stood still and silent.",
+          "A copper bird led the way.",
+          "He found a clock under a root.",
+          "One small gear began to turn."
+        ],
+        medium: [
+          "The copper bird fluttered toward a tower wrapped in vines.",
+          "Inside, Tavi found gears scattered across a dusty floor.",
+          "A wooden fox guarded the spring that powered the forest.",
+          "He fitted the smallest gear into a space near the heart.",
+          "The great clock gave one clear chime after many quiet years."
+        ],
+        difficult: [
+          "Branches unfolded like careful hands as the forest's ancient machinery stirred.",
+          "Tavi listened for the rhythm hidden beneath the churning iron roots.",
+          "Each turning wheel carried a warm pulse through the mossy ground.",
+          "The wooden fox bowed, its painted eyes reflecting a thousand waking leaves.",
+          "By sunrise, every tree swayed again, keeping time with the brightening sky."
+        ]
+      }
+    },
+    "last-lighthouse": {
+      title: "The Last Lighthouse",
+      passages: {
+        easy: [
+          "Rowan sailed into the storm.",
+          "A dark island rose ahead.",
+          "The lighthouse lamp was cold.",
+          "He climbed the winding stairs.",
+          "A little flame came alive."
+        ],
+        medium: [
+          "Waves tossed Rowan's small boat toward the rocky shore.",
+          "He carried a lantern through the rain to the silent tower.",
+          "At the top, he found a cracked lens beneath a heavy cloth.",
+          "A note explained how the beacon could guide lost ships home.",
+          "Rowan lit the lamp and watched its golden beam cross the water."
+        ],
+        difficult: [
+          "Through the driving rain, distant sailors searched the horizon for a signal.",
+          "Rowan aligned the ancient lens with a narrow opening in the storm clouds.",
+          "The beacon swept across the waves, revealing a safe passage between rocks.",
+          "One by one, the stranded ships answered with lanterns of their own.",
+          "At dawn, the lighthouse keeper welcomed Rowan as the guardian of the shore."
+        ]
+      }
+    },
+    "paper-dragon": {
+      title: "The Paper Dragon",
+      passages: {
+        easy: [
+          "Nia folded a red paper dragon.",
+          "It fluttered beside her window.",
+          "The dragon tugged at her sleeve.",
+          "They flew above the rooftops.",
+          "A bright cloud showed the way."
+        ],
+        medium: [
+          "The paper dragon circled the chimney and pointed toward the hills.",
+          "Nia climbed onto its back and held tight to its folded wings.",
+          "They sailed past rooftops where sleepy cats watched them go.",
+          "A silver feather had fallen beside a quiet mountain lake.",
+          "The dragon tucked the feather away and glowed with delight."
+        ],
+        difficult: [
+          "A sudden gust carried Nia and her dragon beyond the edge of the familiar town.",
+          "They discovered an island where forgotten paper creatures gathered in the breeze.",
+          "Nia used her sketchbook to repair a wing torn by the mountain wind.",
+          "The dragon's scarlet scales shimmered as its friends rose into the sunset.",
+          "Together they flew home, leaving a trail of tiny stars across the evening sky."
+        ]
+      }
+    },
+    "sky-train": {
+      title: "The Midnight Sky Train",
+      passages: {
+        easy: [
+          "Eli heard a whistle at midnight.",
+          "A blue train crossed the sky.",
+          "Its doors opened with a chime.",
+          "He found a seat by the stars.",
+          "The moon waved as they passed."
+        ],
+        medium: [
+          "The conductor punched Eli's ticket with a tiny silver star.",
+          "Outside the window, planets drifted like lanterns in the dark.",
+          "A friendly robot served warm cocoa in a paper cup.",
+          "Their next stop was a station built on a ringed planet.",
+          "Eli stepped onto the platform and watched the train glow."
+        ],
+        difficult: [
+          "The sky train raced along a ribbon of light between the distant constellations.",
+          "Eli helped the conductor read a map whose destinations shifted every hour.",
+          "They paused beside a quiet planet where the aurora danced above the station.",
+          "A lost passenger found their home constellation marked on Eli's ticket.",
+          "As dawn approached, the train carried Eli back beneath his own familiar stars."
+        ]
+      }
+    },
+    "secret-garden": {
+      title: "The Secret Garden Gate",
+      passages: {
+        easy: [
+          "June found a key in the rain.",
+          "A green gate stood behind the wall.",
+          "She heard birds inside the garden.",
+          "A small path led to a pond.",
+          "One golden flower began to bloom."
+        ],
+        medium: [
+          "The key turned slowly, and ivy curled away from the old green gate.",
+          "June followed a line of smooth stones through the overgrown garden.",
+          "A painted robin carried a ribbon toward the dry fountain.",
+          "She filled the fountain with water from a rain barrel nearby.",
+          "The garden seemed to brighten as birds returned to the trees."
+        ],
+        difficult: [
+          "Behind the fountain, June uncovered a note written by the garden's first keeper.",
+          "It described a hidden seed that would bloom only when the whole garden was cared for.",
+          "June cleared the tangled paths and invited her neighbors to help plant the beds.",
+          "Together they found the seed tucked beneath a stone shaped like a heart.",
+          "By spring, the secret garden had become a bright refuge for the entire neighborhood."
+        ]
+      }
+    }
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
   };
 
   const PRESETS = {
@@ -175,34 +340,51 @@ document.addEventListener("DOMContentLoaded", () => {
      ========================================================================== */
   let state = {
     mode: "timed",
+<<<<<<< HEAD
     playerName: localStorage.getItem("lr_playerName") || "",
+=======
+    playerName: localStorage.getItem("lr_playerName") || "Your Name",
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     difficulty: "medium",
     durationSeconds: 60,
     timeRemaining: 60,
     isActive: false,
     isPaused: false,
+<<<<<<< HEAD
     practiceKeysmash: false,
+=======
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     timerId: null,
     countdownIntervalId: null,
     countdownStartTimeoutId: null,
     
     currentPhrase: "",
+<<<<<<< HEAD
     timedWordsRemaining: [],
     timedWordsUsed: [],
     lastTimedWord: "",
     lastTimedWords: [],
     difficultSentencesRemaining: [],
     lastDifficultSentence: "",
+=======
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     typedChars: 0,
     correctChars: 0,
     incorrectChars: 0,
     score: 0,
+<<<<<<< HEAD
     storyChapter: 1,
     storyTotalChapters: 12,
     storyChapterProgress: 0,
     storyCompletedPassages: 0,
     sessionStartedAt: 0,
     selectedStoryId: "alice",
+=======
+    storyLevel: 1,
+    storyLives: 3,
+    storyLevelProgress: 0,
+    selectedStoryId: "moonlit-map",
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
 
     // Strike / Streak mechanics & 10-second combo timer
     streak: 0,
@@ -261,11 +443,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentDifficultyEl = document.getElementById("currentDifficulty");
   const correctCountEl = document.getElementById("correctCount");
   const incorrectCountEl = document.getElementById("incorrectCount");
+<<<<<<< HEAD
   const storyChapterIndicator = document.getElementById("storyChapterIndicator");
   const storyEndExitBtn = document.getElementById("storyEndExit");
   const gameModeExitBtn = document.getElementById("gameModeExit");
   const resultElapsed = document.getElementById("resultElapsed");
   const resultProgress = document.getElementById("resultProgress");
+=======
+  const storyLevelEl = document.getElementById("storyLevel");
+  const storyLivesEl = document.getElementById("storyLives");
+  const storyLevelProgressEl = document.getElementById("storyLevelProgress");
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
   const feedbackEl = document.getElementById("feedback");
   
   const playerNameEl = document.getElementById("playerName");
@@ -283,19 +471,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileBestWpm = document.getElementById("profileBestWpm");
   const profileStoryBestLevel = document.getElementById("profileStoryBestLevel");
   const profileStoryBestScore = document.getElementById("profileStoryBestScore");
+<<<<<<< HEAD
   const profileKeysmashGames = document.getElementById("profileKeysmashGames");
   const profileKeysmashBestScore = document.getElementById("profileKeysmashBestScore");
   const profileKeysmashBestWpm = document.getElementById("profileKeysmashBestWpm");
+=======
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
   const profileHistory = document.getElementById("profileHistory");
 
   const resultWpm = document.getElementById("resultWpm");
   const resultAccuracy = document.getElementById("resultAccuracy");
   const resultScore = document.getElementById("resultScore");
   const resultDifficulty = document.getElementById("resultDifficulty");
+<<<<<<< HEAD
   const resultDifficultyRow = document.getElementById("resultDifficultyRow");
 
   const soundToggle = document.getElementById("soundToggle");
   const lightModeToggle = document.getElementById("lightModeToggle");
+=======
+
+  const soundToggle = document.getElementById("soundToggle");
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
   const appearanceToggle = document.getElementById("appearanceToggle");
   const appearanceSection = document.getElementById("appearanceSection");
   const appearancePreset = document.getElementById("appearancePreset");
@@ -315,6 +511,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   /* ==========================================================================
+<<<<<<< HEAD
      ACCOUNT & AUTHENTICATION
      ========================================================================== */
   const AUTH_ACCOUNTS_KEY = "lr_authAccounts";
@@ -660,6 +857,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ==========================================================================
+=======
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
      5. ROUTING & PAGE NAVIGATION
      ========================================================================== */
   function navigateTo(pageId) {
@@ -717,8 +916,11 @@ document.addEventListener("DOMContentLoaded", () => {
      ========================================================================== */
   function setupGameUI(mode) {
     state.mode = mode;
+<<<<<<< HEAD
     const scoreStat = document.getElementById("scoreStat");
     if (scoreStat) scoreStat.classList.toggle("hidden", mode === "story");
+=======
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     if (gameModeHint) {
       gameModeHint.textContent = mode === "keysmash"
         ? "Keysmash: type each random string of 6–8 lowercase letters before time runs out."
@@ -780,11 +982,19 @@ document.addEventListener("DOMContentLoaded", () => {
   function startStoryMode() {
     if (state.isActive || state.isPaused) return;
     state.mode = "story";
+<<<<<<< HEAD
     state.storyChapter = 1;
     state.storyChapterProgress = 0;
     state.storyCompletedPassages = 0;
     state.difficulty = "easy";
     if (!STORYBOOKS[state.selectedStoryId]) state.selectedStoryId = "alice";
+=======
+    state.storyLevel = 1;
+    state.storyLives = 3;
+    state.storyLevelProgress = 0;
+    state.difficulty = "easy";
+    if (!STORYBOOKS[state.selectedStoryId]) state.selectedStoryId = "moonlit-map";
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     if (storySetup) storySetup.classList.add("hidden");
     if (storyEndPanel) storyEndPanel.classList.add("hidden");
     document.body.classList.add("story-countdown");
@@ -848,6 +1058,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     state.isActive = true;
     state.isPaused = false;
+<<<<<<< HEAD
     state.sessionStartedAt = Date.now();
     state.timedWordsRemaining = [];
     state.timedWordsUsed = [];
@@ -855,6 +1066,8 @@ document.addEventListener("DOMContentLoaded", () => {
     state.lastTimedWords = [];
     state.difficultSentencesRemaining = [];
     state.lastDifficultSentence = "";
+=======
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     state.score = 0;
     state.typedChars = 0;
     state.correctChars = 0;
@@ -933,6 +1146,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let diff = state.difficulty;
     if (state.mode === "practice") {
+<<<<<<< HEAD
       const keys = ["keysmash", "easy", "medium", "difficult"];
       diff = keys[Math.floor(Math.random() * keys.length)];
       if (diff === "keysmash") {
@@ -954,17 +1168,31 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } else if (state.mode === "story") {
       diff = state.storyChapter <= 4 ? "easy" : state.storyChapter <= 8 ? "medium" : "difficult";
+=======
+      const keys = ["easy", "medium", "difficult"];
+      diff = keys[Math.floor(Math.random() * keys.length)];
+      if (currentDifficultyEl) {
+        currentDifficultyEl.textContent = diff.charAt(0).toUpperCase() + diff.slice(1);
+      }
+    } else if (state.mode === "story") {
+      diff = state.storyLevel === 1 ? "easy" : state.storyLevel === 2 ? "medium" : "difficult";
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
       state.difficulty = diff;
       const story = STORYBOOKS[state.selectedStoryId];
       if (!story) throw new Error(`Unknown story book: ${state.selectedStoryId}`);
       const passages = story.passages[diff];
+<<<<<<< HEAD
       state.currentPhrase = passages[state.storyChapterProgress % passages.length];
+=======
+      state.currentPhrase = passages[state.storyLevelProgress % passages.length];
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
       if (typingInput) typingInput.value = "";
       renderWordDisplay();
       return;
     }
 
     const pool = WORDS[diff] || WORDS["medium"];
+<<<<<<< HEAD
     if ((state.mode === "timed" || state.mode === "practice") && diff === "difficult") {
       if (state.difficultSentencesRemaining.length === 0) {
         state.difficultSentencesRemaining = DIFFICULT_SENTENCES.filter(sentence => sentence !== state.lastDifficultSentence);
@@ -1014,6 +1242,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+=======
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     let selection = [];
     for (let i = 0; i < 4; i++) {
       selection.push(pool[Math.floor(Math.random() * pool.length)]);
@@ -1028,17 +1258,32 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!wordDisplay || !typingInput) return;
     const val = typingInput.value;
     let html = "";
+<<<<<<< HEAD
     for (let i = 0; i < state.currentPhrase.length; i++) {
       const targetChar = state.currentPhrase[i];
       const typedChar = val[i];
       if (typedChar == null) {
         html += i === val.length ? `<span class="char-current">${targetChar}</span>` : `<span>${targetChar}</span>`;
+=======
+
+    for (let i = 0; i < state.currentPhrase.length; i++) {
+      const targetChar = state.currentPhrase[i];
+      const typedChar = val[i];
+
+      if (typedChar == null) {
+        if (i === val.length) {
+          html += `<span class="char-current">${targetChar}</span>`;
+        } else {
+          html += `<span>${targetChar}</span>`;
+        }
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
       } else if (typedChar === targetChar) {
         html += `<span class="char-correct">${targetChar}</span>`;
       } else {
         html += `<span class="char-incorrect">${targetChar}</span>`;
       }
     }
+<<<<<<< HEAD
     if (state.mode === "story") {
       const book = STORYBOOKS[state.selectedStoryId];
       const difficulty = state.storyChapter <= 4 ? "easy" : state.storyChapter <= 8 ? "medium" : "difficult";
@@ -1071,6 +1316,8 @@ document.addEventListener("DOMContentLoaded", () => {
       wordDisplay.scrollTop = 0;
       return;
     }
+=======
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     wordDisplay.innerHTML = html;
   }
 
@@ -1245,6 +1492,7 @@ document.addEventListener("DOMContentLoaded", () => {
           playSound("wordSuccess");
         }
 
+<<<<<<< HEAD
         if (state.mode === "story" && phraseErrors === 0) {
           state.storyChapterProgress++;
           state.storyCompletedPassages++;
@@ -1259,11 +1507,39 @@ document.addEventListener("DOMContentLoaded", () => {
             if (feedbackEl) feedbackEl.textContent = "";
           } else if (feedbackEl) {
             feedbackEl.textContent = "";
+=======
+        if (state.mode === "story") {
+          if (phraseErrors === 0) {
+            state.storyLevelProgress++;
+            if (state.storyLevelProgress >= 5) {
+              state.storyLevel++;
+              state.storyLevelProgress = 0;
+              const difficulty = state.storyLevel === 2 ? "Medium" : "Difficult";
+              if (feedbackEl) feedbackEl.textContent = `Level ${state.storyLevel}! The challenge is now ${difficulty}.`;
+            } else if (feedbackEl) {
+              feedbackEl.textContent = "Phrase complete. Keep going!";
+            }
+          } else {
+            state.storyLives--;
+            if (feedbackEl) {
+              feedbackEl.textContent = state.storyLives > 0
+                ? `Mistake! ${state.storyLives} ${state.storyLives === 1 ? "life" : "lives"} remaining.`
+                : "You have used all your lives.";
+            }
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
           }
           saveStoryBest();
         }
 
         triggerExplosiveEffect(wordDisplay, 40);
+<<<<<<< HEAD
+=======
+        if (state.mode === "story" && state.storyLives <= 0) {
+          updateStatsDisplay();
+          finishStory(true);
+          return;
+        }
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
         nextPhrase();
         updateStatsDisplay();
       } else {
@@ -1301,9 +1577,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (correctCountEl) correctCountEl.textContent = state.correctChars;
     if (incorrectCountEl) incorrectCountEl.textContent = state.incorrectChars;
+<<<<<<< HEAD
     if (storyChapterIndicator) storyChapterIndicator.textContent = `Chapter ${state.storyChapter} of ${state.storyTotalChapters}`;
     if (progressBar && state.mode === "story") {
       progressBar.style.width = `${(state.storyChapterProgress / 5) * 100}%`;
+=======
+    if (storyLevelEl) storyLevelEl.textContent = state.storyLevel;
+    if (storyLivesEl) storyLivesEl.textContent = state.storyLives;
+    if (storyLevelProgressEl) storyLevelProgressEl.textContent = `${state.storyLevelProgress} / 5`;
+    if (progressBar && state.mode === "story") {
+      progressBar.style.width = `${(state.storyLevelProgress / 5) * 100}%`;
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     }
   }
 
@@ -1340,27 +1624,41 @@ document.addEventListener("DOMContentLoaded", () => {
     hideComboHud();
     state.isActive = false;
 
+<<<<<<< HEAD
     const elapsedSeconds = Math.max(0, Math.floor((Date.now() - (state.sessionStartedAt || Date.now())) / 1000));
     const timeElapsedMin = Math.max(elapsedSeconds / 60, 1 / 60);
     const { typedChars, correctChars } = getTypingTotals();
     const finalWpm = Math.round((correctChars / 5) / timeElapsedMin) || 0;
+=======
+    const timeElapsedMin = Math.max(state.durationSeconds / 60, 0.01);
+    const { typedChars, correctChars } = getTypingTotals();
+    const finalWpm = Math.round((state.correctChars / 5) / timeElapsedMin) || 0;
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     const finalAcc = typedChars > 0 ? Math.round((correctChars / typedChars) * 100) : 100;
 
     if (resultWpm) resultWpm.textContent = finalWpm;
     if (resultAccuracy) resultAccuracy.textContent = `${finalAcc}%`;
     if (resultScore) resultScore.textContent = state.score;
+<<<<<<< HEAD
     if (resultDifficultyRow) resultDifficultyRow.classList.toggle("hidden", state.mode !== "timed");
     if (resultDifficulty && state.mode === "timed") {
       resultDifficulty.textContent = state.difficulty.toUpperCase();
     }
     if (resultElapsed) resultElapsed.textContent = formatTime(elapsedSeconds);
     if (resultProgress) resultProgress.textContent = `${Math.min(100, Math.round((elapsedSeconds / Math.max(1, state.durationSeconds)) * 100))}%`;
+=======
+    if (resultDifficulty) resultDifficulty.textContent = state.difficulty.toUpperCase();
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
 
     if (state.mode === "timed" || state.mode === "keysmash") {
       saveGameResult({
         playedAt: new Date().toISOString(),
+<<<<<<< HEAD
         mode: state.mode,
         difficulty: state.mode === "keysmash" ? "keysmash" : state.difficulty,
+=======
+        difficulty: state.difficulty,
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
         score: state.score,
         wpm: finalWpm,
         accuracy: finalAcc
@@ -1382,7 +1680,10 @@ document.addEventListener("DOMContentLoaded", () => {
     hideComboHud();
     state.isActive = false;
     state.isPaused = false;
+<<<<<<< HEAD
     state.practiceKeysmash = false;
+=======
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     state.streak = 0;
     if (countdownOverlay) countdownOverlay.classList.add("hidden");
     if (typingInput) {
@@ -1397,14 +1698,24 @@ document.addEventListener("DOMContentLoaded", () => {
     if (progressBar) progressBar.style.width = "100%";
   }
 
+<<<<<<< HEAD
   function finishStory(completed = false) {
     const wasActive = state.isActive;
+=======
+  function finishStory(outOfLives) {
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     state.isActive = false;
     state.isPaused = false;
     clearInterval(state.timerId);
     clearInterval(state.countdownIntervalId);
     clearTimeout(state.countdownStartTimeoutId);
+<<<<<<< HEAD
     state.timerId = state.countdownIntervalId = state.countdownStartTimeoutId = null;
+=======
+    state.timerId = null;
+    state.countdownIntervalId = null;
+    state.countdownStartTimeoutId = null;
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     hideComboHud();
     document.body.classList.remove("game-session", "practice-session", "story-session", "story-countdown");
     if (typingInput) typingInput.disabled = true;
@@ -1412,6 +1723,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (stopGameBtn) stopGameBtn.disabled = true;
     if (gameStage) gameStage.classList.add("hidden");
     if (pausePanel) pausePanel.classList.add("hidden");
+<<<<<<< HEAD
     const elapsedSeconds = Math.max(0, Math.floor((Date.now() - (state.sessionStartedAt || Date.now())) / 1000));
     const { typedChars, correctChars } = getTypingTotals();
     const elapsedMinutes = Math.max(elapsedSeconds / 60, 1 / 60);
@@ -1431,15 +1743,29 @@ document.addEventListener("DOMContentLoaded", () => {
     if (storyEndPanel) storyEndPanel.classList.remove("hidden");
     if (wasActive) playSound("finish");
     if (!completed) navigateTo("results");
+=======
+    if (storyEndTitle) storyEndTitle.textContent = `You reached Level ${state.storyLevel}`;
+    if (storyEndMessage) {
+      storyEndMessage.textContent = outOfLives
+        ? "Your lives are gone, but the journey can begin again."
+        : `You ended your journey with ${state.storyLives} ${state.storyLives === 1 ? "life" : "lives"} remaining.`;
+    }
+    if (storyEndPanel) storyEndPanel.classList.remove("hidden");
+    playSound("finish");
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
   }
 
   /* ==========================================================================
      10. PROFILE & SETTINGS SYSTEM
      ========================================================================== */
   function loadGameHistory() {
+<<<<<<< HEAD
     const storageKey = getProgressStorageKey("lr_gameHistory");
     if (!storageKey) return [];
     const savedHistory = localStorage.getItem(storageKey);
+=======
+    const savedHistory = localStorage.getItem("lr_gameHistory");
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     if (!savedHistory) return [];
 
     try {
@@ -1452,7 +1778,11 @@ document.addEventListener("DOMContentLoaded", () => {
         game &&
         typeof game.playedAt === "string" &&
         Number.isFinite(Date.parse(game.playedAt)) &&
+<<<<<<< HEAD
         ["easy", "medium", "difficult", "keysmash"].includes(game.difficulty) &&
+=======
+        ["easy", "medium", "difficult"].includes(game.difficulty) &&
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
         Number.isFinite(game.score) &&
         Number.isFinite(game.wpm) &&
         Number.isFinite(game.accuracy)
@@ -1464,9 +1794,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function loadStoryBest() {
+<<<<<<< HEAD
     const storageKey = getProgressStorageKey("lr_storyBest");
     if (!storageKey) return { level: 0, score: 0 };
     const savedBest = localStorage.getItem(storageKey);
+=======
+    const savedBest = localStorage.getItem("lr_storyBest");
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     if (!savedBest) return { level: 0, score: 0 };
 
     try {
@@ -1488,6 +1822,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function saveStoryBest() {
+<<<<<<< HEAD
     const storageKey = getProgressStorageKey("lr_storyBest");
     if (!storageKey) return;
     const best = loadStoryBest();
@@ -1496,6 +1831,14 @@ document.addEventListener("DOMContentLoaded", () => {
       score: Math.max(best.score, state.score)
     };
     localStorage.setItem(storageKey, JSON.stringify(updatedBest));
+=======
+    const best = loadStoryBest();
+    const updatedBest = {
+      level: Math.max(best.level, state.storyLevel),
+      score: Math.max(best.score, state.score)
+    };
+    localStorage.setItem("lr_storyBest", JSON.stringify(updatedBest));
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     renderStoryBest(updatedBest);
   }
 
@@ -1523,9 +1866,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function loadGameSummary(history = loadGameHistory()) {
+<<<<<<< HEAD
     const storageKey = getProgressStorageKey("lr_gameSummary");
     if (!storageKey) return summarizeGames(history);
     const savedSummary = localStorage.getItem(storageKey);
+=======
+    const savedSummary = localStorage.getItem("lr_gameSummary");
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     if (!savedSummary) return summarizeGames(history);
 
     try {
@@ -1544,7 +1891,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function saveGameResult(game) {
+<<<<<<< HEAD
     if (!activeAccount) return;
+=======
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     const previousHistory = loadGameHistory();
     const previousSummary = loadGameSummary(previousHistory);
     const history = [game, ...previousHistory].slice(0, 10);
@@ -1557,8 +1907,13 @@ document.addEventListener("DOMContentLoaded", () => {
       bestWpm: Math.max(previousSummary.bestWpm, game.wpm)
     };
 
+<<<<<<< HEAD
     localStorage.setItem(getProgressStorageKey("lr_gameHistory"), JSON.stringify(history));
     localStorage.setItem(getProgressStorageKey("lr_gameSummary"), JSON.stringify(summary));
+=======
+    localStorage.setItem("lr_gameHistory", JSON.stringify(history));
+    localStorage.setItem("lr_gameSummary", JSON.stringify(summary));
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     renderProfileStats(history, summary);
   }
 
@@ -1577,6 +1932,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (profileAverageAccuracy) profileAverageAccuracy.textContent = `${averageAccuracy.toFixed(1)}%`;
     if (profileBestScore) profileBestScore.textContent = summary.bestScore.toLocaleString();
     if (profileBestWpm) profileBestWpm.textContent = summary.bestWpm;
+<<<<<<< HEAD
 
     const keysmashGames = history.filter(game => game.mode === "keysmash" || game.difficulty === "keysmash");
     if (profileKeysmashGames) profileKeysmashGames.textContent = keysmashGames.length;
@@ -1587,6 +1943,8 @@ document.addEventListener("DOMContentLoaded", () => {
       profileKeysmashBestWpm.textContent = keysmashGames.reduce((best, game) => Math.max(best, game.wpm), 0);
     }
 
+=======
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     renderStoryBest();
 
     if (!profileHistory) return;
@@ -1615,9 +1973,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const row = body.insertRow();
       const dateCell = row.insertCell();
       dateCell.textContent = new Date(game.playedAt).toLocaleDateString();
+<<<<<<< HEAD
       row.insertCell().textContent = (game.mode === "keysmash" || game.difficulty === "keysmash")
         ? "Keysmash"
         : game.difficulty.charAt(0).toUpperCase() + game.difficulty.slice(1);
+=======
+      row.insertCell().textContent = game.difficulty.charAt(0).toUpperCase() + game.difficulty.slice(1);
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
       row.insertCell().textContent = game.score.toLocaleString();
       row.insertCell().textContent = game.wpm;
       row.insertCell().textContent = `${game.accuracy}%`;
@@ -1627,6 +1989,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateProfileUI() {
+<<<<<<< HEAD
     const savedName = typeof state.playerName === "string" ? state.playerName.trim() : "";
     state.playerName = savedName;
     if (playerNameEl) playerNameEl.textContent = savedName || "Not set";
@@ -1638,11 +2001,20 @@ document.addEventListener("DOMContentLoaded", () => {
         homeGreeting.textContent = "";
         homeGreeting.classList.add("hidden");
       }
+=======
+    if (playerNameEl) playerNameEl.textContent = state.playerName;
+    if (homeGreeting) {
+      homeGreeting.textContent = state.playerName === "Your Name"
+        ? "Welcome Back"
+        : `Welcome Back, ${state.playerName}!`;
+      homeGreeting.classList.remove("hidden");
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     }
   }
 
   if (editProfileBtn) {
     editProfileBtn.addEventListener("click", () => {
+<<<<<<< HEAD
       if (!activeAccount) {
         navigateTo("auth");
         showAuthMessage("Please log in first to add or edit your profile name.", "error");
@@ -1655,11 +2027,17 @@ document.addEventListener("DOMContentLoaded", () => {
         nameInput.value = "";
         nameInput.focus();
       }
+=======
+      if (profileDisplay) profileDisplay.classList.add("hidden");
+      if (profileForm) profileForm.classList.remove("hidden");
+      if (nameInput) nameInput.value = state.playerName;
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
     });
   }
 
   if (saveNameBtn) {
     saveNameBtn.addEventListener("click", () => {
+<<<<<<< HEAD
       if (!activeAccount) {
         if (profileForm) profileForm.classList.add("hidden");
         if (profileDisplay) profileDisplay.classList.remove("hidden");
@@ -1692,6 +2070,16 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("lr_playerName", newName);
       updateProfileUI();
       renderAuthPage();
+=======
+      const newName = nameInput ? nameInput.value.trim() : "";
+      state.playerName = newName || "Your Name";
+      if (state.playerName === "Your Name") {
+        localStorage.removeItem("lr_playerName");
+      } else {
+        localStorage.setItem("lr_playerName", newName);
+      }
+      updateProfileUI();
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
       if (profileForm) profileForm.classList.add("hidden");
       if (profileDisplay) profileDisplay.classList.remove("hidden");
     });
@@ -1768,6 +2156,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+<<<<<<< HEAD
   function applyLightMode(enabled) {
     document.body.classList.toggle("light-mode", enabled);
     document.documentElement.style.colorScheme = enabled ? "light" : "dark";
@@ -1785,6 +2174,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+=======
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
   if (appearanceToggle && appearanceSection) {
     appearanceToggle.addEventListener("click", () => {
       const isHidden = appearanceSection.classList.toggle("hidden");
@@ -1829,6 +2220,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ==========================================================================
+<<<<<<< HEAD
      BACKGROUND MUSIC PLAYER (persists across in-app page navigation)
      ========================================================================== */
   const musicToggle = document.getElementById("musicToggle");
@@ -1945,6 +2337,12 @@ document.addEventListener("DOMContentLoaded", () => {
   storyBookButtons.forEach(button => {
     button.addEventListener("click", (event) => {
       if (event.target.closest("a")) return;
+=======
+     11. EVENT BINDINGS
+     ========================================================================== */
+  storyBookButtons.forEach(button => {
+    button.addEventListener("click", () => {
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
       const storyId = button.dataset.storybook;
       const story = STORYBOOKS[storyId];
       if (!story) return;
@@ -1961,18 +2359,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   if (gameStartBtn) gameStartBtn.addEventListener("click", startCountdown);
+<<<<<<< HEAD
   if (startGameHeroBtn) startGameHeroBtn.addEventListener("click", () => navigateTo("game-menu"));
   if (practiceStartBtn) practiceStartBtn.addEventListener("click", () => {
     state.mode = "practice";
     state.practiceKeysmash = false;
     initiateRound();
   });
+=======
+  if (startGameHeroBtn) startGameHeroBtn.addEventListener("click", () => navigateTo("game"));
+  if (practiceStartBtn) practiceStartBtn.addEventListener("click", () => initiateRound());
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
   if (storyStartBtn) storyStartBtn.addEventListener("click", startStoryMode);
   if (storyRestartBtn) storyRestartBtn.addEventListener("click", startStoryMode);
   if (pauseGameBtn) pauseGameBtn.addEventListener("click", pauseGame);
   if (continueGameBtn) continueGameBtn.addEventListener("click", resumeGame);
   if (stopGameBtn) stopGameBtn.addEventListener("click", endRound);
   if (stopGameBtnModal) stopGameBtnModal.addEventListener("click", endRound);
+<<<<<<< HEAD
   const exitToModes = () => {
     state.isActive = false;
     state.isPaused = false;
@@ -1984,4 +2388,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateProfileUI();
   if (activeAccount) navigateTo("home");
+=======
+
+  updateProfileUI();
+>>>>>>> fb1f1175ec3f1f866c5a077051f736c7bfd5688c
 });
