@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LetterRush</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="background" aria-hidden="true">
+    <svg class="background-controller" viewBox="0 0 720 500" focusable="false">
+      <path class="controller-shell" transform="translate(-50 -30) scale(1.14 1.12)" d="M224 111c-42 4-75 25-94 64-16 32-29 80-45 132-12 40 6 68 37 73 18 3 35-4 52-17l64-49c37 17 75 25 122 25s85-8 122-25l64 49c17 13 34 20 52 17 31-5 49-33 37-73-16-52-29-100-45-132-19-39-52-60-94-64-33-3-64 7-94 18-25 9-51 9-76 0-30-11-61-21-94-18Z"/>
+      <circle class="controller-stick-ring" cx="220" cy="220" r="43"/>
+      <circle class="controller-stick-cap" cx="220" cy="220" r="30"/>
+      <circle class="controller-dpad-plate" cx="280" cy="320" r="43"/>
+      <path class="controller-dpad" d="M267 282h26v25h25v26h-25v25h-26v-25h-25v-26h25z"/>
+      <circle class="controller-stick-ring" cx="435" cy="320" r="43"/>
+      <circle class="controller-stick-cap" cx="435" cy="320" r="30"/>
+      <circle class="controller-xbox-logo" cx="360" cy="170" r="19"/>
+      <path class="controller-xbox-mark" d="M348 160c5 0 9 4 12 8 3-4 7-8 12-8-1 5-5 10-9 14 4 4 8 9 9 14-5 0-9-4-12-8-3 4-7 8-12 8 1-5 5-10 9-14-4-4-8-9-9-14Z"/>
+      <circle class="controller-menu-button" cx="320" cy="235" r="12"/>
+      <path class="controller-menu-icon" d="M315 232h10m-10 4h10m-10 4h10"/>
+      <circle class="controller-menu-button" cx="400" cy="235" r="12"/>
+      <path class="controller-menu-icon" d="M395 231h10v8h-10zm2 2 3 3 3-3"/>
+      <rect class="controller-share-button" x="348" y="263" width="24" height="13" rx="6"/>
+      <path class="controller-menu-icon" d="M360 272v-6m-3 3 3-3 3 3"/>
+      <circle class="controller-face-button controller-face-y" cx="520" cy="205" r="21"/>
+      <text class="controller-face-label controller-label-y" x="520" y="205">Y</text>
+      <circle class="controller-face-button controller-face-b" cx="560" cy="245" r="21"/>
+      <text class="controller-face-label controller-label-b" x="560" y="245">B</text>
+      <circle class="controller-face-button controller-face-x" cx="480" cy="245" r="21"/>
+      <text class="controller-face-label controller-label-x" x="480" y="245">X</text>
+      <circle class="controller-face-button controller-face-a" cx="520" cy="285" r="21"/>
+      <text class="controller-face-label controller-label-a" x="520" y="285">A</text>
+      <path class="controller-detail" d="M311 365c-13 19-27 36-45 51m158-51c13 19 27 36 45 51"/>
+    </svg>
+  </div>
+
+  <!-- =========================
+       TOP NAVIGATION
+  ========================== -->
+  <header class="topbar">
+    <a class="brand" href="#" data-page="home">
+      Letter<span>Rush</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <button data-page="home">HOME</button>
+      <button data-page="profile">PROFILE</button>
+      <button data-page="game-menu">GAME</button>
+      <button data-page="practice">PRACTICE MODE</button>
+      <button data-page="results">RESULTS</button>
+      <button data-page="settings">SETTINGS</button>
+      <button data-page="auth" id="accountNavButton">ACCOUNT</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =========================
+         HOME
+    ========================== -->
+    <section id="home" class="page">
+      <div class="hero">
+        <p class="eyebrow">TYPE • COMPETE • IMPROVE</p>
+        <h1>LetterRush</h1>
+        <p>Improve your typing speed and accuracy through fast, engaging gameplay.</p>
+        <p id="homeGreeting" class="home-greeting hidden"></p>
+
+        <div class="hero-actions">
+          <button class="primary" id="startGame">PLAY GAME</button>
+          <button class="secondary" data-page="practice">PRACTICE MODE</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         ACCOUNT
+    ========================== -->
+    <section id="auth" class="page active">
+      <div class="panel auth-panel">
+        <div class="auth-heading">
+          <p class="eyebrow">YOUR LETTER RUSH ACCOUNT</p>
+          <h2 id="authHeading">Welcome back</h2>
+          <p id="authDescription">Sign in to continue to your account.</p>
+        </div>
+
+        <p id="authMessage" class="auth-message hidden" role="status" aria-live="polite"></p>
+
+        <div id="authForms">
+          <form id="loginForm" class="auth-form" novalidate>
+            <div class="auth-field">
+              <label for="loginEmail">EMAIL</label>
+              <input id="loginEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            </div>
+            <div class="auth-field">
+              <label for="loginPassword">PASSWORD</label>
+              <div class="auth-password-field">
+                <input id="loginPassword" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+                <button class="auth-password-toggle" type="button" data-password-toggle="loginPassword" aria-label="Show password" aria-pressed="false">SHOW</button>
+              </div>
+            </div>
+            <button class="primary auth-submit" type="submit">
+              <span class="auth-spinner hidden" aria-hidden="true"></span>
+              <span class="auth-submit-label">LOG IN</span>
+            </button>
+          </form>
+
+          <form id="signupForm" class="auth-form hidden" novalidate>
+            <div class="auth-field">
+              <label for="signupName">FULL NAME</label>
+              <input id="signupName" name="name" type="text" autocomplete="name" maxlength="60" placeholder="Your full name" required>
+            </div>
+            <div class="auth-field">
+              <label for="signupEmail">EMAIL</label>
+              <input id="signupEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            </div>
+            <div class="auth-field">
+              <label for="signupPassword">PASSWORD</label>
+              <div class="auth-password-field">
+                <input id="signupPassword" name="password" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" required>
+                <button class="auth-password-toggle" type="button" data-password-toggle="signupPassword" aria-label="Show password" aria-pressed="false">SHOW</button>
+              </div>
+            </div>
+            <div class="auth-field">
+              <label for="confirmPassword">CONFIRM PASSWORD</label>
+              <div class="auth-password-field">
+                <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" placeholder="Enter your password again" required>
+                <button class="auth-password-toggle" type="button" data-password-toggle="confirmPassword" aria-label="Show password" aria-pressed="false">SHOW</button>
+              </div>
+            </div>
+            <button class="primary auth-submit" type="submit">
+              <span class="auth-spinner hidden" aria-hidden="true"></span>
+              <span class="auth-submit-label">CREATE ACCOUNT</span>
+            </button>
+          </form>
+
+          <p class="auth-switch-prompt">
+            <span id="authSwitchText">Don't have an account?</span>
+            <button id="authSwitchButton" class="auth-switch-button" type="button">Sign up</button>
+          </p>
+        </div>
+
+        <div id="accountDashboard" class="account-dashboard hidden">
+          <p class="account-welcome">Signed in as</p>
+          <strong id="accountName" class="account-name"></strong>
+          <span id="accountEmail" class="account-email"></span>
+          <button id="signOutButton" class="secondary" type="button">SIGN OUT</button>
+        </div>
+
+        <p class="auth-demo-note">Demo account data stays in this browser. Use a secure authentication backend for real accounts.</p>
+      </div>
+    </section>
+
+    <!-- =========================
+         GAME CATEGORY MENU
+    ========================== -->
+    <section id="game-menu" class="page">
+      <div class="panel game-category-panel">
+        <p class="eyebrow">PICK YOUR GAME</p>
+        <h2>Game Modes</h2>
+        <p class="game-category-intro">Choose a mode to get started.</p>
+        <div class="game-category-grid">
+          <button class="game-category-card" type="button" data-page="game">
+            <span class="game-category-icon" aria-hidden="true">◷</span>
+            <strong>Timed Game</strong>
+            <span>Race the clock and test your typing speed.</span>
+          </button>
+          <button class="game-category-card" type="button" data-page="story">
+            <span class="game-category-icon" aria-hidden="true">▤</span>
+            <strong>Story Mode</strong>
+            <span>Choose a storybook and type through its chapters.</span>
+          </button>
+          <button class="game-category-card" type="button" data-page="keysmash">
+            <span class="game-category-icon" aria-hidden="true">⌨</span>
+            <strong>Keysmash</strong>
+            <span>Type random strings of letters before time runs out.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         GAME
+    ========================== -->
+    <section id="game" class="page">
+      <div class="game-card">
+        <button type="button" class="game-exit" id="gameModeExit" aria-label="Exit game mode" title="Return to game modes">×</button>
+        <!-- NORMAL GAME SETUP -->
+        <div class="game-setup" id="gameSetup">
+          <div class="setup-heading">
+            <p class="eyebrow">GAME SETUP</p>
+            <h2>Choose your challenge</h2>
+            <p class="game-mode-hint" id="gameModeHint"></p>
+          </div>
+
+          <!-- DIFFICULTY -->
+          <div class="control-group" id="difficultyGroup">
+            <label for="difficulty">DIFFICULTY</label>
+            <select id="difficulty" aria-label="Difficulty">
+              <option value="easy">Easy</option>
+              <option value="medium" selected>Medium</option>
+              <option value="difficult">Difficult</option>
+            </select>
+            <small class="control-hint"></small>
+          </div>
+
+          <!-- TIMER -->
+          <div class="control-group">
+            <label for="timerAmount">PLAY TIME</label>
+            <div class="duration-controls">
+              <input id="timerAmount" type="number" min="1" value="60" aria-label="Play time">
+              <select id="timerUnit" aria-label="Time unit">
+                <option value="seconds">Seconds</option>
+                <option value="minutes">Minutes</option>
+              </select>
+            </div>
+            <small class="control-hint">Enter any amount of time you want.</small>
+          </div>
+
+          <!-- START BUTTON -->
+          <div class="start-area">
+            <button class="primary start-game-button" id="gameStart">START GAME</button>
+            <p class="start-note">Countdown starts after pressing Start.</p>
+          </div>
+        </div>
+
+        <!-- COUNTDOWN -->
+        <div id="countdownOverlay" class="countdown-overlay hidden">
+          <span id="countdownNumber">3</span>
+        </div>
+
+        <!-- GAME STATS -->
+        <div id="gameStage" class="hidden">
+          <div class="stats">
+            <div class="timed-only">
+              <small>TIME</small>
+              <strong id="time" aria-label="Time remaining" aria-live="off">01:00</strong>
+            </div>
+
+            <div class="timed-only">
+              <small>WPM</small>
+              <strong id="wpm">0</strong>
+            </div>
+
+            <div class="timed-only">
+              <small>ACCURACY</small>
+              <strong id="accuracy">100%</strong>
+            </div>
+
+            <div id="scoreStat">
+              <small>SCORE</small>
+              <strong id="score">0</strong>
+            </div>
+
+            <div class="practice-only hidden">
+              <small>CORRECT</small>
+              <strong id="correctCount">0</strong>
+            </div>
+
+            <div class="practice-only hidden">
+              <small>INCORRECT</small>
+              <strong id="incorrectCount">0</strong>
+            </div>
+
+            <div class="story-only hidden story-chapter-stat">
+              <small>CHAPTER</small>
+              <strong id="storyChapterIndicator">Chapter 1 of 12</strong>
+            </div>
+          </div>
+
+          <!-- PROGRESS -->
+          <div class="progress">
+            <span id="progress"></span>
+          </div>
+
+          <!-- TYPING AREA -->
+          <div class="typing-box">
+            <small class="story-active-title hidden" id="storyActiveTitle"></small>
+            <small class="typing-label">TYPE THE TEXT BELOW</small>
+            <p id="wordDisplay"></p>
+            <input id="typingInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type here..." disabled>
+            <p id="feedback"></p>
+          </div>
+
+          <!-- GAME ACTIONS -->
+          <div class="game-actions">
+            <button class="secondary" id="pauseGame" disabled>PAUSE</button>
+            <button class="secondary danger-button" id="stopGame" disabled>STOP</button>
+          </div>
+        </div>
+
+        <!-- PAUSE PANEL -->
+        <div id="pausePanel" class="pause-panel hidden">
+          <p class="eyebrow">GAME PAUSED</p>
+          <h3>Take a break</h3>
+          <p>Your progress is saved. Continue whenever you are ready.</p>
+          <button class="primary" id="continueGame">CONTINUE</button>
+          <button class="secondary danger-button" id="stopGameButton">STOP GAME</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         PROFILE
+    ========================== -->
+    <section id="profile" class="page">
+      <div class="panel profile-panel">
+        <p class="eyebrow">PLAYER PROFILE</p>
+        <h2>Profile</h2>
+
+        <div class="profile-avatar">
+          <div class="avatar-icon" aria-hidden="true">👤</div>
+        </div>
+
+        <div id="profileDisplay" class="profile-display">
+          <p class="profile-name-line">Name: <strong id="playerName">Your Name</strong></p>
+          <button class="secondary" id="editProfile">EDIT</button>
+        </div>
+
+        <div id="profileForm" class="profile-form hidden">
+          <label for="nameInput">Name</label>
+          <input id="nameInput" type="text" maxlength="30" placeholder="Enter your name" autocomplete="name">
+          <div class="profile-form-actions">
+            <button class="primary" id="saveName">SAVE</button>
+          </div>
+        </div>
+
+        <section class="profile-stats" aria-labelledby="profileStatsHeading">
+          <div class="profile-section-heading">
+            <div>
+              <p class="eyebrow">YOUR PROGRESS</p>
+              <h3 id="profileStatsHeading">Timed Game Overview</h3>
+            </div>
+          </div>
+
+          <div class="profile-stat-grid">
+            <div class="profile-stat">
+              <span>GAMES PLAYED</span>
+              <strong id="profileGamesPlayed">0</strong>
+            </div>
+            <div class="profile-stat">
+              <span>TOTAL SCORE</span>
+              <strong id="profileTotalScore">0</strong>
+            </div>
+            <div class="profile-stat">
+              <span>AVERAGE WPM</span>
+              <strong id="profileAverageWpm">0</strong>
+            </div>
+            <div class="profile-stat">
+              <span>AVERAGE ACCURACY</span>
+              <strong id="profileAverageAccuracy">0%</strong>
+            </div>
+          </div>
+
+          <div class="profile-best-grid">
+            <div class="profile-best">
+              <span>PERSONAL BEST SCORE</span>
+              <strong id="profileBestScore">0</strong>
+            </div>
+            <div class="profile-best">
+              <span>FASTEST WPM</span>
+              <strong id="profileBestWpm">0</strong>
+            </div>
+          </div>
+
+          <div class="profile-history-section">
+            <h3>Keysmash Mode Best</h3>
+            <div class="profile-best-grid">
+              <div class="profile-best">
+                <span>GAMES PLAYED</span>
+                <strong id="profileKeysmashGames">0</strong>
+              </div>
+              <div class="profile-best">
+                <span>HIGHEST SCORE</span>
+                <strong id="profileKeysmashBestScore">0</strong>
+              </div>
+              <div class="profile-best">
+                <span>FASTEST WPM</span>
+                <strong id="profileKeysmashBestWpm">0</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-history-section">
+            <h3>Story Mode Best</h3>
+            <div class="profile-best-grid">
+              <div class="profile-best">
+                <span>HIGHEST CHAPTER</span>
+                <strong id="profileStoryBestLevel">0</strong>
+              </div>
+              <div class="profile-best">
+                <span>HIGHEST STORY SCORE</span>
+                <strong id="profileStoryBestScore">0</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-history-section">
+            <h3>Recent Games</h3>
+            <p class="profile-history-hint">Your 10 most recent timed rounds are saved on this device.</p>
+            <div id="profileHistory" class="profile-history-wrap">
+              <p class="profile-history-empty">No timed games played yet. Complete a game to see your results here.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- =========================
+         RESULTS
+    ========================== -->
+    <section id="results" class="page">
+      <div class="panel">
+        <p class="eyebrow">LAST ROUND</p>
+        <h2>Results</h2>
+
+        <div class="result-grid">
+          <div>
+            <span>WPM</span>
+            <strong id="resultWpm">0</strong>
+          </div>
+          <div>
+            <span>Accuracy</span>
+            <strong id="resultAccuracy">0%</strong>
+          </div>
+          <div>
+            <span>Score</span>
+            <strong id="resultScore">0</strong>
+          </div>
+          <div id="resultDifficultyRow">
+            <span>Difficulty</span>
+            <strong id="resultDifficulty">—</strong>
+          </div>
+          <div>
+            <span>Elapsed Time</span>
+            <strong id="resultElapsed">00:00</strong>
+          </div>
+          <div>
+            <span>Typing Progress</span>
+            <strong id="resultProgress">0%</strong>
+          </div>
+        </div>
+
+        <button class="primary" data-page="game">PLAY AGAIN</button>
+      </div>
+    </section>
+
+    <!-- =========================
+         PRACTICE MODE
+    ========================== -->
+    <section id="practice" class="page">
+      <div class="panel practice-panel">
+        <p class="eyebrow">UNLIMITED TRAINING</p>
+        <h2>Practice Mode</h2>
+        <p>Practice without a time limit with randomized timed challenges and Keysmash.</p>
+
+        <div class="practice-note">
+          <span class="practice-icon">✦</span>
+          <div>
+            <strong>Randomized challenges</strong>
+            <p>Each prompt rotates among Easy, Medium, Difficult, and Keysmash.</p>
+          </div>
+        </div>
+
+        <div class="practice-actions">
+          <button class="primary" id="practiceStart">START PRACTICE</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         STORY MODE
+    ========================== -->
+    <section id="story" class="page">
+      <button type="button" class="game-exit" id="storyEndExit" aria-label="Exit Story Mode" title="Return to game modes">×</button>
+      <div class="panel story-panel">
+        <div id="storySetup">
+          <p class="eyebrow">CHOOSE YOUR ADVENTURE</p>
+          <h2>Story Books</h2>
+          <div class="story-intro">
+            <p>Choose from six public-domain classics. Type through 12 game chapters using short excerpts and supplemental typing prompts; open each source link to read the full book legally online.</p>
+          </div>
+          <div class="story-book-list" id="storyBookList" aria-label="Choose a public-domain story book">
+            <div class="story-book-item"><button class="story-book selected" type="button" data-storybook="alice" aria-pressed="true">
+              <img class="story-book-cover" src="https://www.gutenberg.org/cache/epub/11/pg11.cover.medium.jpg" alt="Cover of Alice’s Adventures in Wonderland" loading="lazy" onerror="this.style.display='none'">
+              <span class="story-book-genre">CLASSIC FANTASY</span>
+              <strong>Alice’s Adventures in Wonderland</strong>
+              <span class="story-book-author">by Lewis Carroll</span>
+              <span>A curious girl follows a white rabbit into a wonderfully strange world.</span>
+            </button>
+            <a class="story-source-link" href="https://www.gutenberg.org/ebooks/11" target="_blank" rel="noopener noreferrer">Read legally free at Project Gutenberg ↗</a></div>
+            <div class="story-book-item"><button class="story-book" type="button" data-storybook="pride" aria-pressed="false">
+              <img class="story-book-cover" src="https://www.gutenberg.org/cache/epub/1342/pg1342.cover.medium.jpg" alt="Cover of Pride and Prejudice" loading="lazy" onerror="this.style.display='none'">
+              <span class="story-book-genre">ROMANCE</span>
+              <strong>Pride and Prejudice</strong>
+              <span class="story-book-author">by Jane Austen</span>
+              <span>Elizabeth Bennet navigates family, first impressions, and love.</span>
+            </button>
+            <a class="story-source-link" href="https://www.gutenberg.org/ebooks/1342" target="_blank" rel="noopener noreferrer">Read legally free at Project Gutenberg ↗</a></div>
+            <div class="story-book-item"><button class="story-book" type="button" data-storybook="frankenstein" aria-pressed="false">
+              <img class="story-book-cover" src="https://www.gutenberg.org/cache/epub/84/pg84.cover.medium.jpg" alt="Cover of Frankenstein" loading="lazy" onerror="this.style.display='none'">
+              <span class="story-book-genre">GOTHIC</span>
+              <strong>Frankenstein</strong>
+              <span class="story-book-author">by Mary Wollstonecraft Shelley</span>
+              <span>A scientist’s ambition creates a life that changes everything.</span>
+            </button>
+            <a class="story-source-link" href="https://www.gutenberg.org/ebooks/84" target="_blank" rel="noopener noreferrer">Read legally free at Project Gutenberg ↗</a></div>
+            <div class="story-book-item"><button class="story-book" type="button" data-storybook="sherlock" aria-pressed="false">
+              <img class="story-book-cover" src="https://www.gutenberg.org/cache/epub/1661/pg1661.cover.medium.jpg" alt="Cover of The Adventures of Sherlock Holmes" loading="lazy" onerror="this.style.display='none'">
+              <span class="story-book-genre">MYSTERY</span>
+              <strong>The Adventures of Sherlock Holmes</strong>
+              <span class="story-book-author">by Arthur Conan Doyle</span>
+              <span>Sherlock Holmes and Dr. Watson solve puzzling London cases.</span>
+            </button>
+            <a class="story-source-link" href="https://www.gutenberg.org/ebooks/1661" target="_blank" rel="noopener noreferrer">Read legally free at Project Gutenberg ↗</a></div>
+            <div class="story-book-item"><button class="story-book" type="button" data-storybook="little-women" aria-pressed="false">
+              <img class="story-book-cover" src="https://www.gutenberg.org/cache/epub/37106/pg37106.cover.medium.jpg" alt="Cover of Little Women" loading="lazy" onerror="this.style.display='none'">
+              <span class="story-book-genre">CLASSIC</span>
+              <strong>Little Women</strong>
+              <span class="story-book-author">by Louisa May Alcott</span>
+              <span>The March sisters grow up through hardship, joy, and family bonds.</span>
+            </button>
+            <a class="story-source-link" href="https://www.gutenberg.org/ebooks/37106" target="_blank" rel="noopener noreferrer">Read legally free at Project Gutenberg ↗</a></div>
+            <div class="story-book-item"><button class="story-book" type="button" data-storybook="secret-garden" aria-pressed="false">
+              <img class="story-book-cover" src="https://www.gutenberg.org/cache/epub/113/pg113.cover.medium.jpg" alt="Cover of The Secret Garden" loading="lazy" onerror="this.style.display='none'">
+              <span class="story-book-genre">DISCOVERY</span>
+              <strong>The Secret Garden</strong>
+              <span class="story-book-author">by Frances Hodgson Burnett</span>
+              <span>A hidden garden helps three children discover friendship and renewal.</span>
+            </button>
+            <a class="story-source-link" href="https://www.gutenberg.org/ebooks/113" target="_blank" rel="noopener noreferrer">Read legally free at Project Gutenberg ↗</a>
+          </div>
+          <p class="story-selection" id="storySelection" aria-live="polite">Selected: Alice’s Adventures in Wonderland</p>
+          <button class="primary" id="storyStart">START STORY</button>
+        </div>
+
+        <div id="storyEndPanel" class="story-end-panel hidden" aria-live="polite">
+          <p class="eyebrow">JOURNEY ENDED</p>
+          <h3 id="storyEndTitle">Journey complete</h3>
+          <p id="storyEndMessage"></p>
+          <button class="primary" id="storyRestart">TRY AGAIN</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         SETTINGS
+    ========================== -->
+    <section id="settings" class="page">
+      <div class="panel settings-panel">
+        <p class="eyebrow">CUSTOMIZE YOUR EXPERIENCE</p>
+        <h2>Settings</h2>
+
+        <!-- SOUND EFFECTS -->
+        <div class="setting">
+          <div class="setting-info">
+            <strong>Sound Effects</strong>
+            <span>Play sounds for countdowns, typing, and game actions.</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="soundToggle" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- BACKGROUND MUSIC -->
+        <div class="setting">
+          <div class="setting-info">
+            <strong>Background Music</strong>
+            <span>Choose a local audio file. Playback may require a click.</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="musicToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- LIGHT MODE -->
+        <div class="setting">
+          <div class="setting-info">
+            <strong>Light Mode</strong>
+            <span>Use a bright background with high-contrast text.</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="lightModeToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="music-controls" aria-label="Background music player controls">
+          <label for="musicFile">Choose music from your device (MP3, WAV, OGG)</label>
+          <input type="file" id="musicFile" accept="audio/mpeg,audio/mp3,audio/wav,audio/ogg,audio/*">
+          <div class="music-player-actions" aria-label="Music controls">
+            <button type="button" class="music-icon-button" id="musicPlay" aria-label="Play background music" title="Play">
+              <span aria-hidden="true">▶</span>
+            </button>
+            <button type="button" class="music-icon-button" id="musicPause" aria-label="Pause background music" title="Pause">
+              <span aria-hidden="true">❚❚</span>
+            </button>
+            <button type="button" class="music-icon-button" id="musicStop" aria-label="Stop background music" title="Stop">
+              <span aria-hidden="true">⃠</span>
+            </button>
+            <button type="button" class="music-icon-button" id="musicMute" aria-label="Mute background music" aria-pressed="false" title="Mute">
+              <span aria-hidden="true">🔇</span>
+            </button>
+          </div>
+          <label for="musicVolume">Volume <span id="musicVolumeLabel">35%</span></label>
+          <input type="range" id="musicVolume" min="0" max="1" step="0.01" value="0.35">
+          <p class="music-note" id="musicStatus" aria-live="polite">No track selected. Choose a local audio file to get started.</p>
+          <p class="music-note">Local file selection must be repeated after a page refresh.</p>
+          <audio id="backgroundAudio" loop preload="none"></audio>
+        </div>
+
+        <!-- APPEARANCE -->
+        <div class="appearance-launch">
+          <div class="setting-info">
+            <strong>Appearance</strong>
+            <span>Customize colors and preset themes.</span>
+          </div>
+          <button type="button" class="secondary" id="appearanceToggle" aria-expanded="false">CUSTOMIZE</button>
+        </div>
+
+        <div class="appearance-section hidden" id="appearanceSection">
+          <div class="appearance-header">
+            <div>
+              <strong>Appearance</strong>
+              <span>Choose a preset or tune individual colors.</span>
+            </div>
+            <button type="button" class="reset-appearance" id="resetAppearance">RESET TO DEFAULT</button>
+          </div>
+
+          <!-- COLOR PRESETS -->
+          <div class="preset-area">
+            <label for="appearancePreset">COLOR PRESET</label>
+            <select id="appearancePreset">
+              <option value="default">Default</option>
+              <option value="ocean">Ocean</option>
+              <option value="forest">Forest</option>
+              <option value="sunset">Sunset</option>
+              <option value="purple">Purple</option>
+              <option value="custom">Custom</option>
+            </select>
+          </div>
+
+          <!-- CUSTOM COLORS -->
+          <div class="color-grid">
+            <div class="color-control">
+              <label for="primaryColor">PRIMARY COLOR</label>
+              <div class="color-input-wrapper">
+                <input type="color" id="primaryColor" value="#ffffff">
+                <span id="primaryHex">#FFFFFF</span>
+              </div>
+            </div>
+
+            <div class="color-control">
+              <label for="backgroundColor">BACKGROUND</label>
+              <div class="color-input-wrapper">
+                <input type="color" id="backgroundColor" value="#050505">
+                <span id="backgroundHex">#050505</span>
+              </div>
+            </div>
+
+            <div class="color-control">
+              <label for="buttonColor">BUTTON COLOR</label>
+              <div class="color-input-wrapper">
+                <input type="color" id="buttonColor" value="#ffffff">
+                <span id="buttonHex">#FFFFFF</span>
+              </div>
+            </div>
+
+            <div class="color-control">
+              <label for="accentColor">ACCENT COLOR</label>
+              <div class="color-input-wrapper">
+                <input type="color" id="accentColor" value="#69d391">
+                <span id="accentHex">#69D391</span>
+              </div>
+            </div>
+
+            <div class="color-control">
+              <label for="textColor">TEXT</label>
+              <div class="color-input-wrapper">
+                <input type="color" id="textColor" value="#f7f7f7">
+                <span id="textHex">#F7F7F7</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUGGESTION -->
+          <div class="appearance-suggestion">
+            <span>✦</span>
+            <p>
+              <strong>Suggestion:</strong> Try Ocean for a cool style, Forest for a calm look, or Sunset for a warmer appearance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer>
+    LETTER<span>RUSH</span>@2026
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
